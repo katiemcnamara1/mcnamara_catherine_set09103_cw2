@@ -1,4 +1,3 @@
-{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -26,17 +25,33 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: 445px;
 margin-top: auto;
 margin-bottom: auto;
-width: 400px;
+width: 450px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.labeltext{
+color: white;
+}
+
+.labeltext2{
+color: white;
+margin-left:2em;
+}
+
+.card2{
+height:400px;
+margin-top:auto;
+width 460px;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
 .social_icon span{
 font-size: 60px;
 margin-left: 10px;
-color: #FFC312;
+color: #136B2A;
 }
 
 .social_icon span:hover{
@@ -56,7 +71,7 @@ top: -45px;
 
 .input-group-prepend span{
 width: 50px;
-background-color: #FFC312;
+background-color: #136B2A;
 color: black;
 border:0 !important;
 }
@@ -106,7 +121,7 @@ margin-left: 4px;
         <div class="d-flex justify-content-center h-100">
                 <div class="card">
                         <div class="card-header">
-                                <h3>{{ _('Register') }}</h3>
+                                <h3>{{ _('Sign in') }}</h3>
                                 <div class="d-flex justify-content-end social_icon">
                                         <span><i class="fab fa-facebook-square"></i></span>
                                         <span><i class="fab fa-google-plus-square"></i></span>
@@ -116,10 +131,28 @@ margin-left: 4px;
 <div class="card-body"> 
     <form action="" method="post">
         {{ form.hidden_tag() }}
-            {{ form.username.label (class ="labeltext")}}<br>
-            {{ form.username(size=32) }}<br>
-       
-            {{ form.password.label (class ="labeltext") }}<br>
-            {{ form.password(size=32) }}<br>
+	<p style="margin-left:2em;">
+            {{ form.username.label (class ="labeltext")}}
+            {{ form.username(size=32) }}
+</p>
 
-{% end block%}
+	<p style="margin-left:2em;">	
+            {{ form.password.label (class ="labeltext") }}
+            {{ form.password(size=32) }}</p>
+		
+	<center>	{{ form.remember_me.label (class="labeltext") }} 
+		{{form.remember_me ()}} </center><br>
+	   <center>{{ form.submit () }}</center>
+		<br>		
+		<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+				{{ _('New user?') }}<a href="#">{{ _('Click here to register!') }}</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">{{ _('Reset password') }}</a>
+				</div>
+
+	</form>
+
+{% endblock %}
+

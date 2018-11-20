@@ -1,38 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
 
-{% extends 'bootstrap/base.html' %}
-{% block title %}
-    {% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
-{% endblock %}
+.pic {
+padding: 420px;
+  font-size: 40px;
+  font-family: courier;
+  text-align:inherit;
+  background-image: url(http://i65.tinypic.com/34hw5cj.jpg);
+  background-position: center;
+  background-size: cover;
 
-{% block navbar %}
+}
+
+.body {
+  font-family: Arial;
+padding: none;
+  background: #f1f1f1;
+}
+
+.top-left {
+    position: absolute;
+    top: 180px;
+    left: 370px;
+}
+.body2 {
+  font-family: Arial;
+padding: 50px;
+  background: #f1f1f1;
+}
+
+
+mark{
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.navButtons {
+  background-color: #B0C4DE;
+  padding: 20px;
+  border: none;
+  width: 25%;
+  float: left;
+  color: white;
+  font-size: 20px;
+  font-family: courier;
+}
+
+.navButtons:hover {
+  background-color: #778899;
+}
+
+.container .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container .btn:hover {
+    background-color: black;
+}
+</style>
+<body>
+<div class="body">
+ <div class="pic">
+    <div class="top-left">
+<h><mark>ADVENTURES IN CHINA</mark> </h>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="body2">
     <nav class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="{{ url_for('index') }}">Microblog</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('explore') }}">Explore</a></li>
+                    <li><a href="{{ url_for('index') }}">{{ _('Home') }}</a></li>
+                    <li><a href="{{ url_for('explore') }}">{{ _('Explore') }}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    <li><a href="{{ url_for('user', username=current_user.username) }}">{{ _('Profile') }}</a></li>
+                    <li><a href="{{ url_for('logout') }}">{{ _('Logout') }}</a></li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
-{% endblock %}
+</div>
 
 {% block content %}
     <div class="container">
@@ -48,3 +121,6 @@
         {% block app_content %}{% endblock %}
     </div>
 {% endblock %}
+</body>
+</html>
+

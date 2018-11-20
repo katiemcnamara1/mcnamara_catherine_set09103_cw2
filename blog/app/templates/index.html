@@ -1,4 +1,7 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
+
+
+
 
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
@@ -15,6 +18,20 @@
         <p>{{ form.submit() }}</p>
     </form>
     {% endif %}
+{% endblock %}
+
+
+
+{% block signout %}
+  <div class="top-right">
+    <div class="buttons">
+    <a  href="{{ url_for('logout') }}"style="text-decoration: none;">Sign out!</a>
+  </div>
+</div>
+{% endblock%}
+
+
+{% block posts %}
     {% for post in posts %}
         {% include 'posts.html' %}
     {% endfor %}

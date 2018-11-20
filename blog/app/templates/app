@@ -1,0 +1,132 @@
+
+.body {
+  font-family: Arial;
+padding: none;
+  background: #f1f1f1;
+}
+
+
+.body2 {
+  font-family: Arial;
+padding: 50px;
+  background: #f1f1f1;
+}
+
+
+
+.pic {
+  padding: 420px;
+  font-size: 40px;
+  font-family: Impact, sans-serif;
+  text-align:inherit;
+  background-image: url(http://i65.tinypic.com/34hw5cj.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+.top-left {
+    position: absolute;
+    top: 150px;
+    left: 350px;
+
+
+}
+
+
+
+.arrow {
+  box-sizing: border-box;
+  height: 5vw;
+  width: 5vw;
+  border-style: solid;
+  border-color: white;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out;
+}
+
+.arrow:hover {
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+}
+
+.container {
+  display: flex;
+
+}
+
+#full {
+
+}
+
+
+
+
+.centered {
+    position: absolute;
+    top: 150px;
+    left: 350px;
+
+}
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+.bottom-center {
+  position: absolute;
+  bottom: 8px;
+  left: 540px;
+  font-family: 'Londrina Shadow';
+  color:white;
+
+}
+
+
+
+#up-arrow a{
+  position: absolute;
+  transform: rotate(180deg);
+  text-decoration: none;
+}
+
+
+
+.buttons{
+
+  background-color: #469A67;
+  padding: 20px;
+  color: white;
+
+  font-size: 60px;
+  font-family: 'Londrina Shadow';
+}
+
+.headerText{
+
+  font-size: 80px;
+  font-family: 'Londrina Shadow';
+  font-size: 100px;
+
+  color: white;
+  padding: 5px;
+
+}
+
+
+mark {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+
