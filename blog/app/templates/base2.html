@@ -3,13 +3,12 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">  
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>
-<script type="text/javascript" src="home.js"></script>
 
 <head>
 
 <body>
 
-
+{% block picture %}
   <div class="parallax">
 
 
@@ -47,6 +46,7 @@
   </div>
 </div>
 </div>
+{% endblock %}
 {% block postbar  %}
 
 {% endblock %}
@@ -55,6 +55,35 @@
 
 {% endblock %}
 
+{% block posts %}
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block edit %}
+
+{% endblock %}
+
+{% block user %}
+
+{% endblock %}
+
+{% block infoText1 %}
+
+
+<div style="height:270px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left: 100px; margin-top: 10px;">
+
+<p>
+  Hey welcome to this blog! In May I was lucky enough to have been given the opportunity to teach Database Systems at a University in Zhengzhou, China. Whilst there I encountered so much I thought I would share. All pictures are from yours truly, strcitly no google images were used in the making of this site! Feel free to look around or post some of your experiences also!
+</p>
+
+</div>
+{% endblock %}
+
+{% block infoText %}
 <div style="height:150px;background-color:white; font-family: 'Londrina Shadow'; font-size:80px; margin-left: 100px; margin-top: 10px;">
 
 Heritage Sites.
@@ -72,19 +101,19 @@ Heritage Sites.
 
 <div style="height:0px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left: 195px;  ">
 
-<p3>Yuntain Mountain</p3>
+<a href="http://set09103.napier.ac.uk:9158/index/Sites/YuntaiMountain" style="text-decoration: none;">Yuntai Mountain</a>
 &emsp;
 </div>
 
 <div style="height:0px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left: 560px;  ">
 
-<p3>Great Wall of China </p3>
+<a href="http://set09103.napier.ac.uk:9158/index/Sites/GreatWall" style="text-decoration: none;">Great Wall of China</a>
 &emsp;
 </div>
 
 <div style="height:100px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left: 960px;  ">
 
-<p3>Summer Palace</p3>
+<a href="http://set09103.napier.ac.uk:9158/index/Sites/SummerPalace" style="text-decoration: none;">Summer Palace</a>
 &emsp;
 </div>
 
@@ -173,8 +202,9 @@ Food.
   height:0;">
 
 </div>
-</head>
 
+{% endblock %}
+</head>
 
 
 

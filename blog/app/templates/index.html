@@ -1,25 +1,10 @@
 {% extends "base2.html" %}
-
-
-
-
-{% block content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
-    {% if form %}
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.post.label }}<br>
-            {{ form.post(cols=32, rows=4) }}<br>
-            {% for error in form.post.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    {% endif %}
+{% block picture %}
 {% endblock %}
 
+
+{% block infoText1 %}
+{% endblock %}
 
 
 {% block signout %}
@@ -28,17 +13,54 @@
     <a  href="{{ url_for('logout') }}"style="text-decoration: none;">Sign out!</a>
   </div>
 </div>
-{% endblock%}
+{% endblock %}
+
+{% block postbar %}
+
+<div style="height:150px;background-color:white; font-family: 'Londrina Shadow'; font-size:60px; margin-left: 100px; margin-top: 10px;">
+<a href ="http://set09103.napier.ac.uk:9158/ " style="text-decoration:none;">Home. </a> &emsp;
+<a  href="{{ url_for('user', username=current_user.username) }}"style="text-decoration: none;">Profile</a> &emsp;
+<a href="{{ url_for('index') }}" style="text-decoration: none;">Posts.</a>&emsp;
+<a  href="{{ url_for('explore') }}"style="text-decoration: none;">Other Users Posts</a> &emsp;
+</div>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+    {% if form %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+ 
+<div style="height:450px;background-color:white; font-family: 'Londrina Shadow'; font-size:60px; margin-left: 180px; ">
+            {{ form.post.label }}<br>
+            {{ form.post(cols=28, rows=2) }}<br>
+            {% for error in form.post.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+</div>
+    </form>
+    {% endif %} 
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+{% endblock %}
+
+
+{% block user %}
+{% endblock %}
 
 
 {% block posts %}
-    {% for post in posts %}
-        {% include 'posts.html' %}
-    {% endfor %}
-    {% if prev_url %}
-    <a href="{{ prev_url }}">Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-    <a href="{{ next_url }}">Older posts</a>
-    {% endif %}
 {% endblock %}
+
+
+
+

@@ -5,7 +5,8 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
 from app.models import User, Post
-
+from PIL import Image
+import os
 
 @app.before_request
 def before_request():
@@ -21,7 +22,10 @@ def root():
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
+	postphoto = request.files['postphoto']
+	filename = form.body.data + 'jpg'
+	postphoto.save(os.path.join(app.root_path, 'static/', filename))
+        post = Post(body=form.post.data, author=current_user, postphoto=url_for('static', filename=filename))
         db.session.add(post)
         db.session.commit()
         flash('Your post is now live!')
@@ -48,9 +52,26 @@ def explore():
         if posts.has_next else None
     prev_url = url_for('explore', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title='Explore', posts=posts.items,
+    return render_template('postsPage.html', title='Explore', posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
 
+
+
+
+@app.route('/index/Sites/YuntaiMountain')
+def yuntai():
+    name= 'YuntaiMountain'
+    return render_template('site.html', name=name)
+
+@app.route('/index/Sites/GreatWall')
+def greatwall():
+    name='GreatWall'
+    return render_template('site.html', name=name)
+
+@app.route('/index/Sites/SummerPalace')
+def summerpalace():
+    name= 'SummerPalace'
+    return render_template('site.html', name=name)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -76,6 +97,8 @@ def logout():
     return redirect(url_for('index'))
 
 
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -86,9 +109,9 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash(('Congratulations, you are now a registered user!'))
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title=('Register'), form=form)
 
 
 @app.route('/user/<username>')
@@ -106,21 +129,24 @@ def user(username):
                            next_url=next_url, prev_url=prev_url)
 
 
+
+
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
-def editprofile():
+def edit_profile():
     form = EditProfileForm(current_user.username)
     if form.validate_on_submit():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved.')
-        return redirect(url_for('editprofile'))
+        flash(('Your changes have been saved.'))
+        return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('editprofile.html', title='Edit Profile',
+    return render_template('editprofile.html', title=('Edit Profile'),
                            form=form)
+
 
 
 @app.route('/follow/<username>')

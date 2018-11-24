@@ -1,0 +1,219 @@
+
+
+
+
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">  
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>
+
+<style>
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.bottom-left {
+    position: absolute;
+
+    bottom: -300px;
+    left: -290px;
+    color: white;
+    font-family: 'Londrina Shadow';
+    font-size: 20px;
+}
+
+.column-left2 {
+	width: 50%;
+	left: 0;
+  margin-top: 40px;
+margin-left: 150px;
+	position: absolute;
+}
+
+.header {
+  padding: 300px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i67.tinypic.com/4h9p9h.jpg);
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
+.header2 {
+  padding: 300px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i66.tinypic.com/drctu8.jpg);
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
+
+.columnRight {
+	width: 100%;
+
+}
+.column-left {
+	width: 33%;
+	left: 0;
+margin-left: 150px;
+	position: absolute;
+  margin-top: 100px;
+  display: inline-block;
+}
+
+.column-center {
+	width: 34%;
+margin-top: 100px;
+	margin-left: 527px;
+	position: absolute;
+}
+
+.column-right {
+	width: 33%;
+	right: 0;
+	position: absolute;
+  margin-right: 50px;
+  margin-top: 100px;
+
+}
+
+.headerText{
+
+  font-size: 80px;
+  font-family: 'Londrina Shadow';
+  font-size: 100px;
+
+  color: white;
+  padding: 5px;
+
+}
+
+.arrow {
+      box-sizing: border-box;
+      height: 5vw;
+      width: 5vw;
+      border-style: solid;
+      border-color: white;
+      border-width: 0px 1px 1px 0px;
+      transform: rotate(45deg);
+      transition: border-width 300ms ease-in-out;
+    }
+
+    .arrow:hover {
+      border-bottom-width: 4px;
+      border-right-width: 4px;
+    }
+
+    .container {
+      display: flex;
+
+
+    }
+.arrowposition{
+left:100px;
+}
+    #full {
+      left:500px;
+
+    }
+
+
+</style>
+
+{% if name =="YuntaiMountain"%}
+  <div class="header">
+    <div class="centered">
+      <div class="headerText">
+        <h>Yuntai Mountain</h>
+      </div>
+    </div>
+    <a data-scroll href="#full">
+    <div class="arrow" style="margin-left: 300px;"></div></a>
+    <div id="full">&emsp;</div>
+    <div class="container">
+      <div class="bottom-left">
+        <p>
+          <a href="https://www.instagram.com/katiemcnamara98/" style="text-decoration:none;">@katiemcnamara98</a>
+        </p>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="column-left2">
+
+<div style="height:100px;background-color:white; font-family: 'Londrina Shadow'; font-size:60px; margin-left: 110px; ">Yuntai Mountain </div>
+
+<div style="height:550px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; ">
+  Week 3, the final week, we visited Yuntai Mountau, becuase of its size and beauty it took us 2 days to visit all of it. A bit of background about one of the henan's regions greatest mountains.
+
+  <p>The sceneries of Yuntai Mountain change with the seasons. In spring, the mountain is decorated by wild flowers and green grasses. In summer, the luxuriant virgin forests and beautiful waterfalls make it an excellent resort. In autumn, leaves turn fiery red and the mountain looks like a colorful coat. Seen from a distance, Yuntai Waterfall is like a pillar connecting the sky and earth. In winter, snow turns the mountain into a white world of ice waterfall, ice pillar and evergreen plants covered with snow. This is a typical winter sight in northern China.</p>
+</div>
+
+  <div class="column-left">
+      <img src="http://i64.tinypic.com/suzf5l.jpg" />
+
+  </div>
+  <div style="height:350px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; "> </div>
+  <div style="height:60px;background-color:white; font-family: 'Londrina Shadow'; font-size:15px; margin-left: 250px;  "> Red Stone Gorge </div>
+  <div style="height:300px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; ">
+  The first area I visited was Red Stone Gorge - a very spectacular area with a number of bridges and waterfalls viewed from walkways cut into the cliffs. The walk through this area took about 2 1/2 hours.
+  At the end of the Red Stone Gorge walk there was a short walk down the road to the bus waiting area for Zhuyu Peak.
+  The road up Zhuyu Peak is an engineering feat and offers spectacular views - I counted 16 tunnels on the road. </div>
+
+  <div class="column-left">
+      <img src="http://i63.tinypic.com/2rcsoip.jpg" />
+
+  </div>
+  <div style="height:350px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; "> </div>
+  <div style="height:60px;background-color:white; font-family: 'Londrina Shadow'; font-size:15px; margin-left: 250px;  "> Glass Bridge </div>
+
+  <div style="height:300px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; ">
+  Not only does it demonstrate its attractive landscape - which is scenic and picturesque - it makes you feel as if you are in the clouds or in a fairytale setting. Not for the fain hearted, I must admit I was ratyer nervous when placing my first foot on it but after that I didnt look back (or down!) A must see destination! </div>
+  <div style="height:100px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left:120px;  margin-right:140px;  border: 0 none;
+    border-top: 2px dashed #322f32;
+    background: none;
+    height:0;">
+
+</div>
+
+<div class="columnRight">
+  <div style="height:150px;background-color:white; font-family: 'Londrina Shadow'; font-size:60px; ">Other sites I visited </div>
+  <div style="height:0px;background-color:white; font-family: 'Londrina Shadow'; font-size:70px; "> <a href="#" style="text-decoration: none;">The Great Wall</a> </div>
+<div style="height:140px;background-color:white; font-family: 'Londrina Shadow'; font-size:70px; margin-left:500px; "> <a href="#" style="text-decoration: none;">SummerPalace</a> </div>
+<div style="height:100px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left:120px;  margin-right:140px;  border: 0 none;
+  border-top: 2px dashed #322f32;
+  background: none;
+  height:0;">
+
+</div>
+<div style="height:20px;">
+</div>
+
+{% elif name =="GreatWall" %}
+<div class="header2">
+  <div class="centered">
+    <div class="headerText">
+      <h>Great Wall of China</h>
+    </div>
+  </div>
+  <a data-scroll href="#full">
+  <div class="arrow" style="margin-left: 300px;"></div></a>
+  <div id="full">&emsp;</div>
+  <div class="container">
+    <div class="bottom-left">
+      <p>
+        <a href="https://www.instagram.com/katiemcnamara98/" style="text-decoration:none;">@katiemcnamara98</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endif %}
