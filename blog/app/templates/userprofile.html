@@ -1,0 +1,117 @@
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>
+<style>
+#postBox{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #469A67;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.postText{
+font-family: 'Londrina Shadow';
+color: black;
+font-size: 50px;
+}
+
+.profilePic{
+margin-left:100px;
+margin-top: 20px;
+}
+
+.profileText{
+margin-left: 120px;
+
+font-family: 'Londrina Shadow';
+    font-size: 30px;
+
+}
+
+.postPhoto {
+margin-top: -120px;
+margin-left: 900px;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+{% block infoText %}
+{% endblock %}
+
+
+{% block userProfile %}
+
+
+<table class="table table-hover">
+        <tr>
+
+<td> <div class="profilePic">   <img src="http://i64.tinypic.com/28rmxx5.jpg " </img></div> </td>
+            <td>
+		<div style="background-color:white; font-family: 'Londrina Shadow';margin-left: -300px;font-size:30px; "> {{ user.username }} Profile: </div>
+
+ 
+		<div class ="profileText">
+                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+                <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+                {% if user == current_user %}
+                <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+
+<div style="height:0px;background-color:white; font-family: 'Londrina Shadow'; font-size:38px; margin-left:120px;  margin-right:140px;  border: 0 none;
+  border-top: 2px dashed #322f32;
+  background: none;
+  height:0;">
+
+</div>
+
+ {% elif not current_user.is_following(user) %}
+                <p><a href="{{ url_for('follow', username=user.username) }}">Follow</a></p>
+                {% else %}
+                <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
+{% endif %}
+
+            </td>
+        </tr>
+    </table>
+{% endblock %}
+
+{% block content %}
+
+
+   <div style="height:50px;background-color:white; font-family: 'Londrina Shadow'; font-size:40px; margin-left:500px; ">
+  Your Posts! </div>
+{% for post in posts %}
+    <p>
+
+<div id ="postBox">
+<p>
+  <div class ="postText">
+    {{ post.author.username }} posted: <br>{{ post.body }}</br>
+   <div class = "postPhoto">   
+   <img src="{{ post.postphoto }}" width="300px"></img> </div> </div></p>  <br> <br> </div>
+     {% endfor %}
+{% endblock %}
+
+
+
+
+
+{% block user %}
+{% endblock %}  
+</head>
+
+
+
+
+</body>
+</html>

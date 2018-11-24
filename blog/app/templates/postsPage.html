@@ -25,7 +25,6 @@
 
 
 
-
 {% block content %}
     {% if form %}
     <form action="" method="post">
@@ -33,6 +32,8 @@
         <p>
             {{ form.post.label }}<br>
             {{ form.post(cols=32, rows=4) }}<br>
+	    {{ form.postphoto.label }}
+	    {{ form.postphoto }}
             {% for error in form.post.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}

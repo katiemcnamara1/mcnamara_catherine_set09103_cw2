@@ -1,40 +1,67 @@
 
-{% extends "index.html" %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>  
+
+<style>
+#postBox{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #469A67;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.postText{
+font-family: 'Londrina Shadow';
+color: black;
+font-size: 50px;
+}
+
+.postPhoto {
+margin-top: -120px;
+margin-left: 900px;
+}
+
+
+</style>
+
+
+
+{% for post in posts %}
+    <p>
+<div id ="postBox">
+<p>
+  <div class ="postText">
+    {{ post.author.username }} posted: <br>{{ post.body }}</br>
+   <div class = "postPhoto">   
+   <img src="{{ post.postphoto }}" width="300px"></img> </div> </div></p></div>
+    {% endfor %}
 
 {% block infoText %}
 {% endblock %}
 
-{% block user %}
-  
-  {% for post in posts %}
-    <tr>
-       
-        {% include 'posts.html' %}
-         <div style="height:0px; background-color:white; font-size: 80px; font-family: 'Londrina Shadow'; margin-left: 100px;"> 
-          <td width="256px"><img src="{{ user.avatar(256) }}"> {{ user.username }} </td> 
-          <td>
-           <div style="height:0px;background-color:white; font-family: 'Londrina Shadow'; font-size:30px; margin-left: 25px;">
-           <td>
-                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-                {% if user.last_seen %}
-                <p>Last seen : Today</p>
-                {% endif %}
-                <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
-                {% if user == current_user %}
-                <p><a href="{{ url_for('edit_profile') }}">{{ _('Edit your profile') }}</a></p>
-                {% elif not current_user.is_following(user) %}
-                <p><a href="{{ url_for('follow', username=user.username) }}">{{ _('Follow') }}</a></p>
-                {% else %}
-                <p><a href="{{ url_for('unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
-                {% endif %}
-            </td>
-	
-        </tr>
 
-    {% endfor %}
-</table>
+{% block userProfile %}
+                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+                <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+                {% if user == current_user %}
+                <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+                {% elif not current_user.is_following(user) %}
+                <p><a href="{{ url_for('follow', username=user.username) }}">Follow</a></p>
+                {% else %}
+                <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
+                {% endif %}
 {% endblock %}
 
+
+
+
+
+
+{% block user %}
+{% endblock %}  
 </head>
 
 

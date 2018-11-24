@@ -52,7 +52,7 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[
+    post = TextAreaField('Tell us about it', validators=[
         DataRequired(), Length(min=1, max=140)])
-    postphoto = FileField('Post photo', validators=[FileRequired(), FileAllowed(['jpg', 'png'], 'JPG and PNG please')])
-    submit = SubmitField('Submit')
+    postphoto = FileField('Got a pic?', validators=[FileRequired(), FileAllowed(['jpg', 'png'], 'JPG and PNG please')])
+    submit = SubmitField('Post')

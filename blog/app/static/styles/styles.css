@@ -53,6 +53,17 @@ margin-left: 150px;
 }
 
 
+.header4 {
+  padding: 100px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i65.tinypic.com/34hw5cj.jpg);
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
 .columnRight {
 	width: 100%;
 
