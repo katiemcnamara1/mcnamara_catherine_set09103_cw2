@@ -1,41 +1,71 @@
-{% extends 'base2.html' %}
 
-{% block app_content %}
-    <table class="table table-hover">
-        <tr>
-            <td width="256px"><img src="{{ user.avatar(256) }}"></td>
-            <td>
-                <h1>{{ _('User') }}: {{ user.username }}</h1>
-                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-                {% if user.last_seen %}
-                <p>{{ _('Last seen on') }}:  }}</p>
-                {% endif %}
-                <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
-                {% if user == current_user %}
-                <p><a href="{{ url_for('edit_profile') }}">{{ _('Edit your profile') }}</a></p>
-                {% elif not current_user.is_following(user) %}
-                <p><a href="{{ url_for('follow', username=user.username) }}">{{ _('Follow') }}</a></p>
-                {% else %}
-                <p><a href="{{ url_for('unfollow', username=user.username) }}">{{ _('Unfollow') }}</a></p>
-                {% endif %}
-            </td>
-        </tr>
-    </table>
-    {% for post in posts %}
-        {% include 'posts.html' %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>  
+
+<style>
+#postBox{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #469A67;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.postText{
+font-family: 'Londrina Shadow';
+color: black;
+font-size: 50px;
+}
+
+.postPhoto {
+margin-top: -120px;
+margin-left: 900px;
+}
+
+
+</style>
+
+
+
+{% for post in posts %}
+    <p>
+<div id ="postBox">
+<p>
+  <div class ="postText">
+    {{ post.author.username }} posted: <br>{{ post.body }}</br>
+   <div class = "postPhoto">   
+   <img src="{{ post.postphoto }}" width="300px"></img> </div> </div></p></div>
     {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span> {{ _('Newer posts') }}
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    {{ _('Older posts') }} <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+
+{% block infoText %}
 {% endblock %}
+
+
+{% block userProfile %}
+                {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+                {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
+                <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+                {% if user == current_user %}
+                <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+                {% elif not current_user.is_following(user) %}
+                <p><a href="{{ url_for('follow', username=user.username) }}">Follow</a></p>
+                {% else %}
+                <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
+                {% endif %}
+{% endblock %}
+
+
+
+
+
+
+{% block user %}
+{% endblock %}  
+</head>
+
+
+
+
+</body>
+</html>

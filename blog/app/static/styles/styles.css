@@ -7,6 +7,94 @@ padding: none;
 
 
 
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.bottom-left {
+    position: absolute;
+
+    bottom: -300px;
+    left: -290px;
+    color: white;
+    font-family: 'Londrina Shadow';
+    font-size: 20px;
+}
+
+.column-left2 {
+	width: 50%;
+	left: 0;
+  margin-top: 40px;
+margin-left: 150px;
+	position: absolute;
+}
+
+.header {
+  padding: 300px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i67.tinypic.com/4h9p9h.jpg);
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
+.header2 {
+  padding: 300px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i66.tinypic.com/drctu8.jpg));
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
+
+.header4 {
+  padding: 100px;
+  font-size: 40px;
+  font-family: courier;
+  text-align: center;
+  background-image: url(http://i65.tinypic.com/34hw5cj.jpg);
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+}
+
+.columnRight {
+	width: 100%;
+
+}
+.column-left {
+	width: 33%;
+	left: 0;
+margin-left: 150px;
+	position: absolute;
+  margin-top: 100px;
+  display: inline-block;
+}
+
+.column-center {
+	width: 34%;
+margin-top: 100px;
+	margin-left: 527px;
+	position: absolute;
+}
+
+.column-right {
+	width: 33%;
+	right: 0;
+	position: absolute;
+  margin-right: 50px;
+  margin-top: 100px;
+
+}
+
+
+
 .body2 {
   font-family: Arial;
 padding: 70px;

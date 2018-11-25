@@ -1,6 +1,35 @@
-<table>
-        <tr valign="top">
-            <td><img src="{{ post.author.avatar(36) }}"></td>
-            <td><a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a> says:<br>{{ post.body }}</td>
-        </tr>
-    </table>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href='https://fonts.googleapis.com/css?family=Londrina Shadow' rel='stylesheet'>  
+
+<style>
+#postBox{
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #469A67;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.postText{
+font-family: 'Londrina Shadow';
+color: black;
+font-size: 50px;
+}
+
+.postPhoto {
+margin-top: -120px;
+margin-left: 900px;
+}
+
+
+</style>
+<div id ="postBox">
+<p>
+  <div class ="postText">
+<a href="{{ url_for('user', username=post.author.username) }}">{{ post.author.username }}</a>  posted:<br>  {{ post.body }} <br>
+   <div class = "postPhoto">   
+   <img src="{{ post.postphoto }}" width="300px"></img> </div> </div></p></div>
+<br>
+<br>

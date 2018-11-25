@@ -19,6 +19,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
+    profilepic = db.Column(db.String(50))    
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     followed = db.relationship(
         'User', secondary=followers,
@@ -70,6 +71,7 @@ class Post(db.Model):
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    postphoto = db.Column(db.String(300))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)

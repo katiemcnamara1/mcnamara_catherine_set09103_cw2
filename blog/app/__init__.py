@@ -9,6 +9,7 @@ from flask_bootstrap import Bootstrap
 from config import Config
 from flask_babel import Babel, lazy_gettext as _loginbabel 
 from flask import request
+from flask_moment import Moment
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -19,7 +20,7 @@ login.login_view = 'login'
 login.login_message = _loginbabel('Please log in to access this page.')
 bootstrap = Bootstrap(app)
 babel = Babel(app)
-
+moment = Moment(app)
 
 @babel.localeselector
 def get_locale():
